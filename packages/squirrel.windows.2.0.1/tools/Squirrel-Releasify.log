@@ -1,0 +1,27 @@
+﻿[05/01/22 03:06:31] info: Program: Starting Squirrel Updater: --releasify CapturadorGastroAvances1.0.0.nupkg
+[05/01/22 03:06:31] info: Program: Bootstrapper EXE found at:D:\Capturador Med Q\Capturador grabador\Capturador_gastro_avances\packages\squirrel.windows.2.0.1\tools\Setup.exe
+[05/01/22 03:06:31] fatal: Finished with unhandled exception: System.IO.FileNotFoundException: No se pudo encontrar el archivo 'CapturadorGastroAvances1.0.0.nupkg'.
+Nombre de archivo: 'CapturadorGastroAvances1.0.0.nupkg'
+   en System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   en System.IO.File.InternalCopy(String sourceFileName, String destFileName, Boolean overwrite, Boolean checkHost)
+   en Squirrel.Update.Program.Releasify(String package, String targetDir, String packagesDir, String bootstrapperExe, String backgroundGif, String signingOpts, String baseUrl, String setupIcon, Boolean generateMsi, Boolean packageAs64Bit, String frameworkVersion, Boolean generateDeltas)
+   en Squirrel.Update.Program.executeCommandLine(String[] args)
+   en Squirrel.Update.Program.main(String[] args)
+[05/01/22 03:07:50] info: Program: Starting Squirrel Updater: --releasify CapturadorGastroAvances.1.0.0.nupkg
+[05/01/22 03:07:50] info: Program: Bootstrapper EXE found at:D:\Capturador Med Q\Capturador grabador\Capturador_gastro_avances\packages\squirrel.windows.2.0.1\tools\Setup.exe
+[05/01/22 03:07:50] info: Program: Creating release package: D:\Capturador Med Q\Capturador grabador\Capturador_gastro_avances\Releases\CapturadorGastroAvances.1.0.0.nupkg
+[05/01/22 03:07:50] info: ReleasePackage: Creating release package: D:\Capturador Med Q\Capturador grabador\Capturador_gastro_avances\Releases\CapturadorGastroAvances.1.0.0.nupkg => D:\Capturador Med Q\Capturador grabador\Capturador_gastro_avances\Releases\CapturadorGastroAvances-1.0.0-full.nupkg
+[05/01/22 03:07:51] info: ReleasePackage: Extracting dependent packages: []
+[05/01/22 03:07:51] info: ReleasePackage: Removing unnecessary data
+[05/01/22 03:07:51] info: ReleasePackage: No release notes found in C:\Users\Oscar\AppData\Local\SquirrelTemp\tempe\CapturadorGastroAvances.nuspec
+[05/01/22 03:07:54] info: Program: Building embedded zip file for Setup.exe
+[05/01/22 03:08:04] info: Program: Finished Squirrel Updater
+[06/01/22 10:42:25] info: Program: Starting Squirrel Updater: --releasify CapturadorGastroAvances.1.0.0.nupkg
+[06/01/22 10:42:25] info: Program: Bootstrapper EXE found at:D:\Capturador Med Q\Capturador grabador\Capturador_gastro_avances\packages\squirrel.windows.2.0.1\tools\Setup.exe
+[06/01/22 10:42:25] info: Program: Creating release package: D:\Capturador Med Q\Capturador grabador\Capturador_gastro_avances\Releases\CapturadorGastroAvances.1.0.0.nupkg
+[06/01/22 10:42:25] info: ReleasePackage: Creating release package: D:\Capturador Med Q\Capturador grabador\Capturador_gastro_avances\Releases\CapturadorGastroAvances.1.0.0.nupkg => D:\Capturador Med Q\Capturador grabador\Capturador_gastro_avances\Releases\CapturadorGastroAvances-1.0.0-full.nupkg
+[06/01/22 10:42:26] info: ReleasePackage: Extracting dependent packages: []
+[06/01/22 10:42:26] info: ReleasePackage: Removing unnecessary data
+[06/01/22 10:42:26] info: ReleasePackage: No release notes found in C:\Users\Oscar\AppData\Local\SquirrelTemp\tempe\CapturadorGastroAvances.nuspec
+[06/01/22 10:42:28] info: Program: Building embedded zip file for Setup.exe
+[06/01/22 10:42:38] info: Program: Finished Squirrel Updater
