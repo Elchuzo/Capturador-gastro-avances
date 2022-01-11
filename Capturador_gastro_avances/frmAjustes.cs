@@ -122,5 +122,10 @@ namespace Capturador_gastro_avances
                 await manager.Result.UpdateApp();
             }
         }
+
+        private void btnActualizar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

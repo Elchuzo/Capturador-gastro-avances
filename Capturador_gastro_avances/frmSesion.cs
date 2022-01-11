@@ -28,7 +28,7 @@ namespace Capturador_gastro_avances
         string carpeta_actual = string.Empty;
         string nombre_paciente = string.Empty;
 
-        private int FrameRate = 25;
+        private int FrameRate = 60;
         double timeBetweenFramesInSeconds = 0;
         private BrightnessCorrection bc = new BrightnessCorrection(0);
         private ContrastCorrection cc = new ContrastCorrection(0);
@@ -55,6 +55,7 @@ namespace Capturador_gastro_avances
         private VideoFileWriter writer_Video;
 
         frmPrincipal insta = null;
+        frmImagen correciones;
 
         public long? StartTick { get; private set; }
 
@@ -64,6 +65,7 @@ namespace Capturador_gastro_avances
             nombre_paciente = nombre;
             folder = Settings.Default.folder_path;
             InitializeComponent();
+            correciones = new frmImagen(this);
         }
 
         // metodo para centrar el picturebox en el panel contenedor 
@@ -80,11 +82,41 @@ namespace Capturador_gastro_avances
             pictureBox1.Location = new Point(x_location, y_location);
         }
 
+        private void centrarUltimaImagen()
+        {
+            int pnl_x = pnlUltima.Size.Width;
+            int pnl_y = pnlUltima.Size.Height/2;
+
+            int offset_x = picUltima.Width;
+            int offset_y = picUltima.Height;
+
+            int x_location = (pnl_x / 2) - (offset_x / 2);
+            int y_location = (pnl_y / 2) - (offset_y / 2);
+
+            picUltima.Location = new Point(x_location, y_location);
+
+        }
+
+        //private void centrarEtiqueta()
+        //{
+        //    int pnl_x = pnlUltima.Size.Width;
+        //    int pnl_y = pnlUltima.Size.Height / 2;
+
+        //    int offset_x = lblOrden.Width;
+        //    int offset_y = lblOrden.Height;
+
+        //    int x_location = (pnl_x / 2) - (offset_x / 2);
+        //    int y_location = (pnl_y / 2) - (offset_y / 2);
+
+        //    lblOrden.Location = new Point(x_location, y_location);
+        //}
+
         private void frmSesion_Load(object sender, EventArgs e)
         {
             centrarReproductor();
-            centrar_Filtros();
+            //centrar_Filtros();
             cargarFiltros();
+            centrarUltimaImagen();
 
             // descomentar linea de abajo para habilitar grabacion
 
@@ -310,14 +342,21 @@ namespace Capturador_gastro_avances
 
                         // cambiar el tamaño del picturebox 
 
-                        Size nuevo = redimension_Control(tama, pnl_x, pnl_y, false);
-                        redimension_Video(nuevo);
-                    }    
+                        int ultima_x = (pnlUltima.Size.Width) - 25;
+                        int ultima_y = (pnlUltima.Size.Height / 2) -25;
 
-                    
+                        Size nuevo = redimension_Control(tama, pnl_x, pnl_y, false);
+                        Size nuevoultima = redimension_Control(tama, ultima_x, ultima_y, false);
+
+                        Console.WriteLine(nuevoultima);
+                        redimension_Ultima(nuevoultima);
+                        redimension_Video(nuevo);
+
+                    }                        
 
                     // centrar el picturebox en el panel contenedor
                     centrarReproductor();
+                    centrarUltimaImagen();
 
                     btnConectar.Enabled = false;
                     btnBuscar.Enabled = false;
@@ -405,10 +444,10 @@ namespace Capturador_gastro_avances
                     if (currentTick != 0)
                     {
                         double elapsedTimeInSeconds = stopwatch.ElapsedTicks / (double)Stopwatch.Frequency;
-                        Console.WriteLine("segundos: " + elapsedTimeInSeconds.ToString());
+                        //Console.WriteLine("segundos: " + elapsedTimeInSeconds.ToString());
                         if (elapsedTimeInSeconds >= timeBetweenFramesInSeconds)
                         {
-                            Console.WriteLine("escribiendo fram");
+                            //Console.WriteLine("escribiendo fram");
                             currentTick = DateTime.Now.Ticks;
                             var frameOffset = new TimeSpan(currentTick - StartTick.Value);
                             writer_Video.WriteVideoFrame(imVideo, frameOffset);
@@ -466,6 +505,11 @@ namespace Capturador_gastro_avances
             pictureBox1.Size = nuevo;
         }
 
+        public void redimension_Ultima(Size nuevo)
+        {
+            picUltima.Size = nuevo;
+        }
+
         // esta función determina el tamaño maximo que puede llegar a tener el picturebox manteniendo la relación de aspecto de la resolución original
         // el tamaño original de la imagen está dado por la resolución seleccionada del dispositivo de video, representada por "src"
         // las variables "maxWidth" y "maxHeight" son las dimensiones del contenedor, en este caso el panel que contiene el picturebox que muestra el video
@@ -501,14 +545,14 @@ namespace Capturador_gastro_avances
         // metodo para centrar los titulos y scrolls de los filtros de video
         private void centrar_Filtros()
         {
-            int pnl_x = pnlFiltros.Size.Width;
-            int pnl_y = pnlFiltros.Size.Height;
+            int pnl_x = pnlUltima.Size.Width;
+            int pnl_y = pnlUltima.Size.Height;
             int cantidad_filtros = 0;
             int total_y = 0;
             int lbl_y = 0;
             int espaciado = 25;
 
-            foreach (var ctrl in pnlFiltros.ControlsInTabOrder())
+            foreach (var ctrl in pnlUltima.ControlsInTabOrder())
             {
                 if (ctrl is Label)
                 {
@@ -524,7 +568,7 @@ namespace Capturador_gastro_avances
 
             cantidad_filtros = 0;
 
-            foreach (var ctrl in pnlFiltros.ControlsInTabOrder())
+            foreach (var ctrl in pnlUltima.ControlsInTabOrder())
             {
                 if (ctrl is Label)
                 {
@@ -545,35 +589,6 @@ namespace Capturador_gastro_avances
                     cantidad_filtros += 1;
                 }
             }
-        }
-
-        private void trkBrillo_Scroll(object sender, EventArgs e)
-        {
-            int n = trkBrillo.Value;
-            bc.AdjustValue = n;
-        }
-
-        private void trkContraste_Scroll(object sender, EventArgs e)
-        {
-            int n = trkContraste.Value;
-            cc.Factor = n;
-        }
-
-        private void trkSaturacion_Scroll(object sender, EventArgs e)
-        {
-            int n = trkSaturacion.Value;
-            float sat = (float)n / 100;
-            sc.AdjustValue = sat;
-        }
-
-        private void btnRegresar_Click(object sender, EventArgs e)
-        {
-            trkBrillo.Value = 0;
-            trkContraste.Value = 0;
-            trkSaturacion.Value = 0;
-            bc.AdjustValue = 0;
-            cc.Factor = 0;
-            sc.AdjustValue = 0;
         }
 
         private void btnDesconectar_Click(object sender, EventArgs e)
@@ -629,6 +644,7 @@ namespace Capturador_gastro_avances
                            // Console.WriteLine("captura");
 
                             Bitmap capt = (Bitmap)pictureBox1.Image.Clone();
+                            picUltima.Image = capt;
 
                             String cantidad = contador_imagenes.ToString();
 
@@ -673,7 +689,7 @@ namespace Capturador_gastro_avances
                 {
                     writer_Video = new VideoFileWriter();
                     string nombre = path + @"\" + "video_" + contador_video + ".mp4";
-                    writer_Video.Open(nombre, width, height,25,VideoCodec.MPEG4);
+                    writer_Video.Open(nombre, width, height,60,VideoCodec.MPEG4);
                     grabando = true;
                     btnGrabar.IconColor = Color.FromArgb(115, 54, 65);
                     btnGrabar.Text = "Detener";
@@ -681,7 +697,7 @@ namespace Capturador_gastro_avances
                     btnBuscar.Enabled = false;
                     //btnModificar.Enabled = false;
                     btnFinal.Enabled = false;
-                    btnCerrar.Enabled = false;
+                    //btnCerrar.Enabled = false;f
                     contador_video++;
                 }
                 else
@@ -692,7 +708,7 @@ namespace Capturador_gastro_avances
                     btnDesconectar.Enabled = true;
                     btnBuscar.Enabled = true;
                     btnFinal.Enabled = true;
-                    btnCerrar.Enabled = true;
+                    //btnCerrar.Enabled = true;
                 }
             }
             catch (Exception ex)
@@ -713,41 +729,10 @@ namespace Capturador_gastro_avances
             writer_Video.Dispose();
         }
 
-        // referencias y funcion para mover la ventana desde el panel superior
-
-        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
-        private extern static void ReleaseCapture();
-        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
-        private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
-
-        private void pnlTop_MouseDown(object sender, MouseEventArgs e)
-        {
-            ReleaseCapture();
-            SendMessage(this.Handle, 0x112, 0xf012, 0);
-        }
-
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             Guardar_captura();
-        }
-
-
-        private void btnCerrar_Click(object sender, EventArgs e)
-        {
-            if (devi != null)
-            {
-                if (devi.IsRunning)
-                    devi.SignalToStop();
-            }
-            this.Close();
-            insta.Show();
-            this.Dispose();
-        }
-
-        private void btnMin_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Minimized;
         }
 
         private void btnFinal_Click(object sender, EventArgs e)
@@ -774,6 +759,12 @@ namespace Capturador_gastro_avances
         private void frmSesion_Shown(object sender, EventArgs e)
         {
         
+        }
+
+        private void toolStripLabel1_Click(object sender, EventArgs e)
+        {            
+            correciones.Show();
+            
         }
 
         private void comboVideo_SelectedIndexChanged(object sender, EventArgs e)
@@ -826,6 +817,102 @@ namespace Capturador_gastro_avances
             {
 
             }
-        }                        
+        }
+        
+        public void setBrillo(int n)
+        {
+            bc.AdjustValue = n;
+        }
+
+        public void setContraste(int n)
+        {
+            cc.Factor = n;
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            if(picUltima.Image != null)
+            {
+
+            }
+        }
+
+        private void btnDel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void frmSesion_Resize(object sender, EventArgs e)
+        {
+            
+            redimensionPaneles();
+            //centrarEtiqueta();
+
+            int x_size = grabacion_x = devi.VideoResolution.FrameSize.Width;
+            int y_size = grabacion_y = devi.VideoResolution.FrameSize.Height;
+
+            //int framerate = devi.VideoCapabilities[0].AverageFrameRate;
+            //Console.WriteLine(framerate.ToString());
+
+            int bordes = 30;  // espacio en pixeles entre el picturebox y el panel contenedor
+
+            int pnl_x = pnlVideo.Width - bordes;
+            int pnl_y = pnlVideo.Height - bordes;
+            Size tama = new Size(x_size, y_size);
+
+            // cambiar el tamaño del picturebox 
+
+            int ultima_x = (pnlUltima.Size.Width) - 25;
+            int ultima_y = (pnlUltima.Size.Height / 2) - 25;
+
+            Size nuevo = redimension_Control(tama, pnl_x, pnl_y, false);
+            Size nuevoultima = redimension_Control(tama, ultima_x, ultima_y, false);
+
+            //Console.WriteLine(nuevoultima);
+            redimension_Ultima(nuevoultima);
+            redimension_Video(nuevo);
+            centrarUltimaImagen();
+            centrarReproductor();
+
+
+        }
+
+        private void redimensionPaneles()
+        {
+
+            //int framerate = devi.VideoCapabilities[0].AverageFrameRate;
+            //Console.WriteLine(framerate.ToString());
+
+            int bordes = 30;  // espacio en pixeles entre el picturebox y el panel contenedor
+
+            int pnlvideo_x = (int)Math.Round(this.Width * 0.70125);
+            int pnlvideo_y = (int)Math.Round(this.Height * 0.67);
+
+            int pnlultima_x = (int)Math.Round(this.Width * 0.27875);
+            int pnlultima_y = (int)Math.Round(this.Height * 0.67);
+
+            Size tamaultima = new Size(pnlultima_x, pnlultima_y);
+            Size tamavideo = new Size(pnlvideo_x, pnlvideo_y);
+
+
+            pnlVideo.Size = tamavideo;
+            pnlUltima.Size = tamaultima;
+
+
+            //int offset_x = picUltima.Width;
+            //int offset_y = picUltima.Height;
+
+            //picUltima.Location = new Point(x_location, y_location);
+        }
+
+        private void frmSesion_ResizeEnd(object sender, EventArgs e)
+        {
+
+        }
+
+        public void setSaturaction(float n)
+        {
+            sc.AdjustValue = n;   
+        }
     }
 }

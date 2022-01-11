@@ -14,9 +14,18 @@ namespace Capturador_gastro_avances
     public partial class frmCantidad : Form
     {
         private int n = 0;
+        private string nombre = string.Empty;
+        private string carpeta_actual = string.Empty;
         public frmCantidad()
         {
             InitializeComponent();
+        }
+
+        public frmCantidad(string nombre, string carpeta)
+        {
+            InitializeComponent();
+            this.nombre = nombre;
+            carpeta_actual = carpeta;
         }
 
         private void frmCantidad_Load(object sender, EventArgs e)

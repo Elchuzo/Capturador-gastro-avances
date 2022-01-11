@@ -87,7 +87,7 @@
             this.btnActualizar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnActualizar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnActualizar.UseVisualStyleBackColor = true;
-            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_ClickAsync);
+            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
             // 
             // checkAuto
             // 
