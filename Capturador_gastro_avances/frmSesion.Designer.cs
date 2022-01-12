@@ -29,18 +29,15 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSesion));
-            this.pnlTop = new System.Windows.Forms.Panel();
-            this.btnMin = new FontAwesome.Sharp.IconButton();
-            this.btnCerrar = new FontAwesome.Sharp.IconButton();
-            this.pnlShade = new System.Windows.Forms.Panel();
-            this.pnlFiltros = new System.Windows.Forms.Panel();
-            this.btnRegresar = new FontAwesome.Sharp.IconButton();
-            this.trkSaturacion = new System.Windows.Forms.TrackBar();
-            this.trkContraste = new System.Windows.Forms.TrackBar();
-            this.trkBrillo = new System.Windows.Forms.TrackBar();
-            this.lblSaturacion = new System.Windows.Forms.Label();
-            this.lblContraste = new System.Windows.Forms.Label();
-            this.lblBrillo = new System.Windows.Forms.Label();
+            this.pnlUltima = new System.Windows.Forms.Panel();
+            this.btnUltimo = new FontAwesome.Sharp.IconButton();
+            this.btnSiguiente = new FontAwesome.Sharp.IconButton();
+            this.btnAnterior = new FontAwesome.Sharp.IconButton();
+            this.btnPrimero = new FontAwesome.Sharp.IconButton();
+            this.btnRevisar = new FontAwesome.Sharp.IconButton();
+            this.btnDel = new FontAwesome.Sharp.IconButton();
+            this.btnAdd = new FontAwesome.Sharp.IconButton();
+            this.picUltima = new AForge.Controls.PictureBox();
             this.pnlVideo = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.comboVideo = new System.Windows.Forms.ComboBox();
@@ -51,190 +48,207 @@
             this.btnFinal = new FontAwesome.Sharp.IconButton();
             this.comboRes = new System.Windows.Forms.ComboBox();
             this.pnlConexion = new System.Windows.Forms.Panel();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
+            this.lblCantidad = new System.Windows.Forms.Label();
             this.lblResolucion = new System.Windows.Forms.Label();
+            this.lblCapturas = new System.Windows.Forms.Label();
             this.lblEntrada = new System.Windows.Forms.Label();
             this.lblNombre = new System.Windows.Forms.Label();
             this.comboInputs = new System.Windows.Forms.ComboBox();
-            this.lblCapturas = new System.Windows.Forms.Label();
-            this.lblCantidad = new System.Windows.Forms.Label();
-            this.pnlTop.SuspendLayout();
-            this.pnlFiltros.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.trkSaturacion)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trkContraste)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trkBrillo)).BeginInit();
+            this.pnlUltima.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picUltima)).BeginInit();
             this.pnlVideo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnlConexion.SuspendLayout();
+            this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // pnlTop
+            // pnlUltima
             // 
-            this.pnlTop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(62)))), ((int)(((byte)(128)))));
-            this.pnlTop.Controls.Add(this.btnMin);
-            this.pnlTop.Controls.Add(this.btnCerrar);
-            this.pnlTop.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlTop.Location = new System.Drawing.Point(0, 0);
-            this.pnlTop.Name = "pnlTop";
-            this.pnlTop.Size = new System.Drawing.Size(800, 35);
-            this.pnlTop.TabIndex = 4;
-            this.pnlTop.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnlTop_MouseDown);
+            this.pnlUltima.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(43)))), ((int)(((byte)(89)))));
+            this.pnlUltima.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlUltima.Controls.Add(this.btnUltimo);
+            this.pnlUltima.Controls.Add(this.btnSiguiente);
+            this.pnlUltima.Controls.Add(this.btnAnterior);
+            this.pnlUltima.Controls.Add(this.btnPrimero);
+            this.pnlUltima.Controls.Add(this.btnRevisar);
+            this.pnlUltima.Controls.Add(this.btnDel);
+            this.pnlUltima.Controls.Add(this.btnAdd);
+            this.pnlUltima.Controls.Add(this.picUltima);
+            this.pnlUltima.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlUltima.Location = new System.Drawing.Point(561, 159);
+            this.pnlUltima.Name = "pnlUltima";
+            this.pnlUltima.Size = new System.Drawing.Size(223, 402);
+            this.pnlUltima.TabIndex = 9;
             // 
-            // btnMin
+            // btnUltimo
             // 
-            this.btnMin.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnMin.FlatAppearance.BorderSize = 0;
-            this.btnMin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMin.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            this.btnMin.IconChar = FontAwesome.Sharp.IconChar.WindowMinimize;
-            this.btnMin.IconColor = System.Drawing.Color.Black;
-            this.btnMin.IconSize = 25;
-            this.btnMin.Location = new System.Drawing.Point(740, 0);
-            this.btnMin.Name = "btnMin";
-            this.btnMin.Rotation = 0D;
-            this.btnMin.Size = new System.Drawing.Size(30, 35);
-            this.btnMin.TabIndex = 8;
-            this.btnMin.TabStop = false;
-            this.btnMin.UseVisualStyleBackColor = true;
-            this.btnMin.Click += new System.EventHandler(this.btnMin_Click);
+            this.btnUltimo.Enabled = false;
+            this.btnUltimo.FlatAppearance.BorderSize = 0;
+            this.btnUltimo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUltimo.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.btnUltimo.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUltimo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(229)))), ((int)(((byte)(238)))));
+            this.btnUltimo.IconChar = FontAwesome.Sharp.IconChar.AngleDoubleRight;
+            this.btnUltimo.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(229)))), ((int)(((byte)(238)))));
+            this.btnUltimo.IconSize = 30;
+            this.btnUltimo.Location = new System.Drawing.Point(155, 172);
+            this.btnUltimo.Name = "btnUltimo";
+            this.btnUltimo.Rotation = 0D;
+            this.btnUltimo.Size = new System.Drawing.Size(30, 30);
+            this.btnUltimo.TabIndex = 20;
+            this.btnUltimo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnUltimo.UseVisualStyleBackColor = true;
+            this.btnUltimo.Visible = false;
             // 
-            // btnCerrar
+            // btnSiguiente
             // 
-            this.btnCerrar.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnCerrar.FlatAppearance.BorderSize = 0;
-            this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCerrar.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            this.btnCerrar.IconChar = FontAwesome.Sharp.IconChar.WindowClose;
-            this.btnCerrar.IconColor = System.Drawing.Color.Black;
-            this.btnCerrar.IconSize = 25;
-            this.btnCerrar.Location = new System.Drawing.Point(770, 0);
-            this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Rotation = 0D;
-            this.btnCerrar.Size = new System.Drawing.Size(30, 35);
-            this.btnCerrar.TabIndex = 6;
-            this.btnCerrar.TabStop = false;
-            this.btnCerrar.UseVisualStyleBackColor = true;
-            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
+            this.btnSiguiente.Enabled = false;
+            this.btnSiguiente.FlatAppearance.BorderSize = 0;
+            this.btnSiguiente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSiguiente.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.btnSiguiente.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSiguiente.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(229)))), ((int)(((byte)(238)))));
+            this.btnSiguiente.IconChar = FontAwesome.Sharp.IconChar.AngleRight;
+            this.btnSiguiente.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(229)))), ((int)(((byte)(238)))));
+            this.btnSiguiente.IconSize = 30;
+            this.btnSiguiente.Location = new System.Drawing.Point(119, 172);
+            this.btnSiguiente.Name = "btnSiguiente";
+            this.btnSiguiente.Rotation = 0D;
+            this.btnSiguiente.Size = new System.Drawing.Size(30, 30);
+            this.btnSiguiente.TabIndex = 19;
+            this.btnSiguiente.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnSiguiente.UseVisualStyleBackColor = true;
+            this.btnSiguiente.Visible = false;
             // 
-            // pnlShade
+            // btnAnterior
             // 
-            this.pnlShade.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(56)))), ((int)(((byte)(115)))));
-            this.pnlShade.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlShade.Location = new System.Drawing.Point(0, 35);
-            this.pnlShade.Name = "pnlShade";
-            this.pnlShade.Size = new System.Drawing.Size(800, 10);
-            this.pnlShade.TabIndex = 5;
+            this.btnAnterior.Enabled = false;
+            this.btnAnterior.FlatAppearance.BorderSize = 0;
+            this.btnAnterior.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAnterior.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.btnAnterior.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAnterior.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(229)))), ((int)(((byte)(238)))));
+            this.btnAnterior.IconChar = FontAwesome.Sharp.IconChar.AngleLeft;
+            this.btnAnterior.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(229)))), ((int)(((byte)(238)))));
+            this.btnAnterior.IconSize = 30;
+            this.btnAnterior.Location = new System.Drawing.Point(77, 172);
+            this.btnAnterior.Name = "btnAnterior";
+            this.btnAnterior.Rotation = 0D;
+            this.btnAnterior.Size = new System.Drawing.Size(30, 30);
+            this.btnAnterior.TabIndex = 18;
+            this.btnAnterior.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnAnterior.UseVisualStyleBackColor = true;
+            this.btnAnterior.Visible = false;
             // 
-            // pnlFiltros
+            // btnPrimero
             // 
-            this.pnlFiltros.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(43)))), ((int)(((byte)(89)))));
-            this.pnlFiltros.Controls.Add(this.btnRegresar);
-            this.pnlFiltros.Controls.Add(this.trkSaturacion);
-            this.pnlFiltros.Controls.Add(this.trkContraste);
-            this.pnlFiltros.Controls.Add(this.trkBrillo);
-            this.pnlFiltros.Controls.Add(this.lblSaturacion);
-            this.pnlFiltros.Controls.Add(this.lblContraste);
-            this.pnlFiltros.Controls.Add(this.lblBrillo);
-            this.pnlFiltros.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlFiltros.Location = new System.Drawing.Point(561, 183);
-            this.pnlFiltros.Name = "pnlFiltros";
-            this.pnlFiltros.Size = new System.Drawing.Size(239, 417);
-            this.pnlFiltros.TabIndex = 9;
+            this.btnPrimero.Enabled = false;
+            this.btnPrimero.FlatAppearance.BorderSize = 0;
+            this.btnPrimero.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPrimero.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.btnPrimero.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPrimero.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(229)))), ((int)(((byte)(238)))));
+            this.btnPrimero.IconChar = FontAwesome.Sharp.IconChar.AngleDoubleLeft;
+            this.btnPrimero.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(229)))), ((int)(((byte)(238)))));
+            this.btnPrimero.IconSize = 30;
+            this.btnPrimero.Location = new System.Drawing.Point(41, 172);
+            this.btnPrimero.Name = "btnPrimero";
+            this.btnPrimero.Rotation = 0D;
+            this.btnPrimero.Size = new System.Drawing.Size(30, 30);
+            this.btnPrimero.TabIndex = 17;
+            this.btnPrimero.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnPrimero.UseVisualStyleBackColor = true;
+            this.btnPrimero.Visible = false;
             // 
-            // btnRegresar
+            // btnRevisar
             // 
-            this.btnRegresar.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btnRegresar.FlatAppearance.BorderSize = 0;
-            this.btnRegresar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRegresar.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            this.btnRegresar.IconChar = FontAwesome.Sharp.IconChar.Undo;
-            this.btnRegresar.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(229)))), ((int)(((byte)(238)))));
-            this.btnRegresar.IconSize = 35;
-            this.btnRegresar.Location = new System.Drawing.Point(0, 367);
-            this.btnRegresar.Name = "btnRegresar";
-            this.btnRegresar.Rotation = 0D;
-            this.btnRegresar.Size = new System.Drawing.Size(239, 50);
-            this.btnRegresar.TabIndex = 23;
-            this.btnRegresar.UseVisualStyleBackColor = true;
-            this.btnRegresar.Click += new System.EventHandler(this.btnRegresar_Click);
+            this.btnRevisar.Enabled = false;
+            this.btnRevisar.FlatAppearance.BorderSize = 0;
+            this.btnRevisar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRevisar.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.btnRevisar.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRevisar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(229)))), ((int)(((byte)(238)))));
+            this.btnRevisar.IconChar = FontAwesome.Sharp.IconChar.List;
+            this.btnRevisar.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(229)))), ((int)(((byte)(238)))));
+            this.btnRevisar.IconSize = 40;
+            this.btnRevisar.Location = new System.Drawing.Point(136, 310);
+            this.btnRevisar.Name = "btnRevisar";
+            this.btnRevisar.Rotation = 0D;
+            this.btnRevisar.Size = new System.Drawing.Size(35, 35);
+            this.btnRevisar.TabIndex = 14;
+            this.btnRevisar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnRevisar.UseVisualStyleBackColor = true;
+            this.btnRevisar.Visible = false;
             // 
-            // trkSaturacion
+            // btnDel
             // 
-            this.trkSaturacion.Location = new System.Drawing.Point(42, 260);
-            this.trkSaturacion.Maximum = 100;
-            this.trkSaturacion.Minimum = -100;
-            this.trkSaturacion.Name = "trkSaturacion";
-            this.trkSaturacion.Size = new System.Drawing.Size(151, 45);
-            this.trkSaturacion.TabIndex = 5;
-            this.trkSaturacion.TickStyle = System.Windows.Forms.TickStyle.None;
-            this.trkSaturacion.Scroll += new System.EventHandler(this.trkSaturacion_Scroll);
+            this.btnDel.Enabled = false;
+            this.btnDel.FlatAppearance.BorderSize = 0;
+            this.btnDel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDel.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.btnDel.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(229)))), ((int)(((byte)(238)))));
+            this.btnDel.IconChar = FontAwesome.Sharp.IconChar.Minus;
+            this.btnDel.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(229)))), ((int)(((byte)(238)))));
+            this.btnDel.IconSize = 40;
+            this.btnDel.Location = new System.Drawing.Point(94, 310);
+            this.btnDel.Name = "btnDel";
+            this.btnDel.Rotation = 0D;
+            this.btnDel.Size = new System.Drawing.Size(35, 35);
+            this.btnDel.TabIndex = 13;
+            this.btnDel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnDel.UseVisualStyleBackColor = true;
+            this.btnDel.Visible = false;
+            this.btnDel.Click += new System.EventHandler(this.btnDel_Click);
             // 
-            // trkContraste
+            // btnAdd
             // 
-            this.trkContraste.Location = new System.Drawing.Point(39, 158);
-            this.trkContraste.Maximum = 100;
-            this.trkContraste.Minimum = -100;
-            this.trkContraste.Name = "trkContraste";
-            this.trkContraste.Size = new System.Drawing.Size(154, 45);
-            this.trkContraste.TabIndex = 3;
-            this.trkContraste.TickStyle = System.Windows.Forms.TickStyle.None;
-            this.trkContraste.Scroll += new System.EventHandler(this.trkContraste_Scroll);
+            this.btnAdd.Enabled = false;
+            this.btnAdd.FlatAppearance.BorderSize = 0;
+            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAdd.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.btnAdd.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(229)))), ((int)(((byte)(238)))));
+            this.btnAdd.IconChar = FontAwesome.Sharp.IconChar.PlusSquare;
+            this.btnAdd.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(229)))), ((int)(((byte)(238)))));
+            this.btnAdd.IconSize = 40;
+            this.btnAdd.Location = new System.Drawing.Point(53, 310);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Rotation = 0D;
+            this.btnAdd.Size = new System.Drawing.Size(35, 35);
+            this.btnAdd.TabIndex = 12;
+            this.btnAdd.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Visible = false;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
-            // trkBrillo
+            // picUltima
             // 
-            this.trkBrillo.Location = new System.Drawing.Point(39, 67);
-            this.trkBrillo.Maximum = 100;
-            this.trkBrillo.Minimum = -100;
-            this.trkBrillo.Name = "trkBrillo";
-            this.trkBrillo.Size = new System.Drawing.Size(154, 45);
-            this.trkBrillo.TabIndex = 1;
-            this.trkBrillo.TickStyle = System.Windows.Forms.TickStyle.None;
-            this.trkBrillo.Scroll += new System.EventHandler(this.trkBrillo_Scroll);
-            // 
-            // lblSaturacion
-            // 
-            this.lblSaturacion.AutoSize = true;
-            this.lblSaturacion.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSaturacion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(229)))), ((int)(((byte)(238)))));
-            this.lblSaturacion.Location = new System.Drawing.Point(37, 216);
-            this.lblSaturacion.Name = "lblSaturacion";
-            this.lblSaturacion.Size = new System.Drawing.Size(114, 30);
-            this.lblSaturacion.TabIndex = 4;
-            this.lblSaturacion.Text = "Saturación";
-            // 
-            // lblContraste
-            // 
-            this.lblContraste.AutoSize = true;
-            this.lblContraste.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblContraste.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(229)))), ((int)(((byte)(238)))));
-            this.lblContraste.Location = new System.Drawing.Point(37, 115);
-            this.lblContraste.Name = "lblContraste";
-            this.lblContraste.Size = new System.Drawing.Size(106, 30);
-            this.lblContraste.TabIndex = 2;
-            this.lblContraste.Text = "Contraste";
-            // 
-            // lblBrillo
-            // 
-            this.lblBrillo.AutoSize = true;
-            this.lblBrillo.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBrillo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(229)))), ((int)(((byte)(238)))));
-            this.lblBrillo.Location = new System.Drawing.Point(51, 25);
-            this.lblBrillo.Name = "lblBrillo";
-            this.lblBrillo.Size = new System.Drawing.Size(62, 30);
-            this.lblBrillo.TabIndex = 0;
-            this.lblBrillo.Text = "Brillo";
+            this.picUltima.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.picUltima.Image = null;
+            this.picUltima.Location = new System.Drawing.Point(41, 35);
+            this.picUltima.Name = "picUltima";
+            this.picUltima.Size = new System.Drawing.Size(144, 131);
+            this.picUltima.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picUltima.TabIndex = 0;
+            this.picUltima.TabStop = false;
             // 
             // pnlVideo
             // 
             this.pnlVideo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(43)))), ((int)(((byte)(89)))));
+            this.pnlVideo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlVideo.Controls.Add(this.pictureBox1);
             this.pnlVideo.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pnlVideo.Location = new System.Drawing.Point(0, 183);
+            this.pnlVideo.Location = new System.Drawing.Point(0, 159);
             this.pnlVideo.Name = "pnlVideo";
-            this.pnlVideo.Size = new System.Drawing.Size(561, 417);
+            this.pnlVideo.Size = new System.Drawing.Size(561, 402);
             this.pnlVideo.TabIndex = 8;
             // 
             // pictureBox1
             // 
+            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBox1.Location = new System.Drawing.Point(60, 35);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(418, 310);
@@ -251,7 +265,7 @@
             this.comboVideo.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboVideo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
             this.comboVideo.FormattingEnabled = true;
-            this.comboVideo.Location = new System.Drawing.Point(12, 42);
+            this.comboVideo.Location = new System.Drawing.Point(12, 58);
             this.comboVideo.Name = "comboVideo";
             this.comboVideo.Size = new System.Drawing.Size(201, 25);
             this.comboVideo.TabIndex = 8;
@@ -268,7 +282,7 @@
             this.btnBuscar.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(229)))), ((int)(((byte)(238)))));
             this.btnBuscar.IconSize = 40;
             this.btnBuscar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBuscar.Location = new System.Drawing.Point(496, 27);
+            this.btnBuscar.Location = new System.Drawing.Point(496, 43);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Rotation = 0D;
             this.btnBuscar.Size = new System.Drawing.Size(125, 46);
@@ -289,7 +303,7 @@
             this.btnConectar.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(229)))), ((int)(((byte)(238)))));
             this.btnConectar.IconSize = 40;
             this.btnConectar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnConectar.Location = new System.Drawing.Point(12, 94);
+            this.btnConectar.Location = new System.Drawing.Point(12, 110);
             this.btnConectar.Name = "btnConectar";
             this.btnConectar.Rotation = 0D;
             this.btnConectar.Size = new System.Drawing.Size(158, 38);
@@ -311,7 +325,7 @@
             this.btnDesconectar.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(229)))), ((int)(((byte)(238)))));
             this.btnDesconectar.IconSize = 40;
             this.btnDesconectar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDesconectar.Location = new System.Drawing.Point(188, 94);
+            this.btnDesconectar.Location = new System.Drawing.Point(188, 110);
             this.btnDesconectar.Name = "btnDesconectar";
             this.btnDesconectar.Rotation = 0D;
             this.btnDesconectar.Size = new System.Drawing.Size(179, 38);
@@ -333,7 +347,7 @@
             this.btnGrabar.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(229)))), ((int)(((byte)(238)))));
             this.btnGrabar.IconSize = 40;
             this.btnGrabar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGrabar.Location = new System.Drawing.Point(627, 29);
+            this.btnGrabar.Location = new System.Drawing.Point(627, 45);
             this.btnGrabar.Name = "btnGrabar";
             this.btnGrabar.Rotation = 0D;
             this.btnGrabar.Size = new System.Drawing.Size(161, 42);
@@ -355,7 +369,7 @@
             this.btnFinal.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(229)))), ((int)(((byte)(238)))));
             this.btnFinal.IconSize = 40;
             this.btnFinal.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFinal.Location = new System.Drawing.Point(631, 92);
+            this.btnFinal.Location = new System.Drawing.Point(631, 108);
             this.btnFinal.Name = "btnFinal";
             this.btnFinal.Rotation = 0D;
             this.btnFinal.Size = new System.Drawing.Size(139, 42);
@@ -374,7 +388,7 @@
             this.comboRes.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboRes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
             this.comboRes.FormattingEnabled = true;
-            this.comboRes.Location = new System.Drawing.Point(373, 42);
+            this.comboRes.Location = new System.Drawing.Point(373, 58);
             this.comboRes.Name = "comboRes";
             this.comboRes.Size = new System.Drawing.Size(117, 25);
             this.comboRes.TabIndex = 15;
@@ -382,6 +396,7 @@
             // pnlConexion
             // 
             this.pnlConexion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(43)))), ((int)(((byte)(89)))));
+            this.pnlConexion.Controls.Add(this.toolStrip1);
             this.pnlConexion.Controls.Add(this.lblCantidad);
             this.pnlConexion.Controls.Add(this.lblResolucion);
             this.pnlConexion.Controls.Add(this.lblCapturas);
@@ -396,28 +411,69 @@
             this.pnlConexion.Controls.Add(this.btnBuscar);
             this.pnlConexion.Controls.Add(this.comboVideo);
             this.pnlConexion.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlConexion.Location = new System.Drawing.Point(0, 45);
+            this.pnlConexion.Location = new System.Drawing.Point(0, 0);
             this.pnlConexion.Name = "pnlConexion";
-            this.pnlConexion.Size = new System.Drawing.Size(800, 138);
+            this.pnlConexion.Size = new System.Drawing.Size(784, 159);
             this.pnlConexion.TabIndex = 6;
+            // 
+            // toolStrip1
+            // 
+            this.toolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripLabel1});
+            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(784, 25);
+            this.toolStrip1.TabIndex = 20;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
+            // toolStripLabel1
+            // 
+            this.toolStripLabel1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripLabel1.Name = "toolStripLabel1";
+            this.toolStripLabel1.Size = new System.Drawing.Size(59, 22);
+            this.toolStripLabel1.Text = "Imagen";
+            this.toolStripLabel1.Click += new System.EventHandler(this.toolStripLabel1_Click);
+            // 
+            // lblCantidad
+            // 
+            this.lblCantidad.AutoSize = true;
+            this.lblCantidad.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCantidad.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(229)))), ((int)(((byte)(238)))));
+            this.lblCantidad.Location = new System.Drawing.Point(472, 118);
+            this.lblCantidad.Name = "lblCantidad";
+            this.lblCantidad.Size = new System.Drawing.Size(23, 25);
+            this.lblCantidad.TabIndex = 3;
+            this.lblCantidad.Text = "0";
             // 
             // lblResolucion
             // 
             this.lblResolucion.AutoSize = true;
             this.lblResolucion.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblResolucion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(229)))), ((int)(((byte)(238)))));
-            this.lblResolucion.Location = new System.Drawing.Point(368, 14);
+            this.lblResolucion.Location = new System.Drawing.Point(368, 30);
             this.lblResolucion.Name = "lblResolucion";
             this.lblResolucion.Size = new System.Drawing.Size(104, 25);
             this.lblResolucion.TabIndex = 19;
             this.lblResolucion.Text = "Resolución";
+            // 
+            // lblCapturas
+            // 
+            this.lblCapturas.AutoSize = true;
+            this.lblCapturas.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCapturas.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(229)))), ((int)(((byte)(238)))));
+            this.lblCapturas.Location = new System.Drawing.Point(368, 118);
+            this.lblCapturas.Name = "lblCapturas";
+            this.lblCapturas.Size = new System.Drawing.Size(98, 25);
+            this.lblCapturas.TabIndex = 2;
+            this.lblCapturas.Text = "Capturas: ";
             // 
             // lblEntrada
             // 
             this.lblEntrada.AutoSize = true;
             this.lblEntrada.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEntrada.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(229)))), ((int)(((byte)(238)))));
-            this.lblEntrada.Location = new System.Drawing.Point(214, 14);
+            this.lblEntrada.Location = new System.Drawing.Point(214, 30);
             this.lblEntrada.Name = "lblEntrada";
             this.lblEntrada.Size = new System.Drawing.Size(78, 25);
             this.lblEntrada.TabIndex = 18;
@@ -428,7 +484,7 @@
             this.lblNombre.AutoSize = true;
             this.lblNombre.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNombre.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(229)))), ((int)(((byte)(238)))));
-            this.lblNombre.Location = new System.Drawing.Point(7, 14);
+            this.lblNombre.Location = new System.Drawing.Point(7, 30);
             this.lblNombre.Name = "lblNombre";
             this.lblNombre.Size = new System.Drawing.Size(83, 25);
             this.lblNombre.TabIndex = 17;
@@ -442,78 +498,44 @@
             this.comboInputs.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboInputs.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
             this.comboInputs.FormattingEnabled = true;
-            this.comboInputs.Location = new System.Drawing.Point(219, 42);
+            this.comboInputs.Location = new System.Drawing.Point(219, 58);
             this.comboInputs.Name = "comboInputs";
             this.comboInputs.Size = new System.Drawing.Size(148, 25);
             this.comboInputs.TabIndex = 16;
-            // 
-            // lblCapturas
-            // 
-            this.lblCapturas.AutoSize = true;
-            this.lblCapturas.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCapturas.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(229)))), ((int)(((byte)(238)))));
-            this.lblCapturas.Location = new System.Drawing.Point(368, 102);
-            this.lblCapturas.Name = "lblCapturas";
-            this.lblCapturas.Size = new System.Drawing.Size(98, 25);
-            this.lblCapturas.TabIndex = 2;
-            this.lblCapturas.Text = "Capturas: ";
-            // 
-            // lblCantidad
-            // 
-            this.lblCantidad.AutoSize = true;
-            this.lblCantidad.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCantidad.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(229)))), ((int)(((byte)(238)))));
-            this.lblCantidad.Location = new System.Drawing.Point(472, 102);
-            this.lblCantidad.Name = "lblCantidad";
-            this.lblCantidad.Size = new System.Drawing.Size(23, 25);
-            this.lblCantidad.TabIndex = 3;
-            this.lblCantidad.Text = "0";
             // 
             // frmSesion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 600);
-            this.Controls.Add(this.pnlFiltros);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(43)))), ((int)(((byte)(89)))));
+            this.ClientSize = new System.Drawing.Size(784, 561);
+            this.Controls.Add(this.pnlUltima);
             this.Controls.Add(this.pnlVideo);
             this.Controls.Add(this.pnlConexion);
-            this.Controls.Add(this.pnlShade);
-            this.Controls.Add(this.pnlTop);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MinimumSize = new System.Drawing.Size(800, 600);
             this.Name = "frmSesion";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Med Q";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmSesion_FormClosing);
             this.Load += new System.EventHandler(this.frmSesion_Load);
             this.Shown += new System.EventHandler(this.frmSesion_Shown);
-            this.pnlTop.ResumeLayout(false);
-            this.pnlFiltros.ResumeLayout(false);
-            this.pnlFiltros.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.trkSaturacion)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trkContraste)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trkBrillo)).EndInit();
+            this.ResizeEnd += new System.EventHandler(this.frmSesion_ResizeEnd);
+            this.Resize += new System.EventHandler(this.frmSesion_Resize);
+            this.pnlUltima.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.picUltima)).EndInit();
             this.pnlVideo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.pnlConexion.ResumeLayout(false);
             this.pnlConexion.PerformLayout();
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel pnlTop;
-        private FontAwesome.Sharp.IconButton btnMin;
-        private FontAwesome.Sharp.IconButton btnCerrar;
-        private System.Windows.Forms.Panel pnlShade;
-        private System.Windows.Forms.Panel pnlFiltros;
-        private FontAwesome.Sharp.IconButton btnRegresar;
-        private System.Windows.Forms.TrackBar trkSaturacion;
-        private System.Windows.Forms.TrackBar trkContraste;
-        private System.Windows.Forms.TrackBar trkBrillo;
-        private System.Windows.Forms.Label lblSaturacion;
-        private System.Windows.Forms.Label lblContraste;
-        private System.Windows.Forms.Label lblBrillo;
+        private System.Windows.Forms.Panel pnlUltima;
         private System.Windows.Forms.Panel pnlVideo;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.ComboBox comboVideo;
@@ -530,5 +552,15 @@
         private System.Windows.Forms.Label lblNombre;
         private System.Windows.Forms.Label lblCantidad;
         private System.Windows.Forms.Label lblCapturas;
+        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStripLabel toolStripLabel1;
+        private AForge.Controls.PictureBox picUltima;
+        private FontAwesome.Sharp.IconButton btnAdd;
+        private FontAwesome.Sharp.IconButton btnRevisar;
+        private FontAwesome.Sharp.IconButton btnDel;
+        private FontAwesome.Sharp.IconButton btnUltimo;
+        private FontAwesome.Sharp.IconButton btnSiguiente;
+        private FontAwesome.Sharp.IconButton btnAnterior;
+        private FontAwesome.Sharp.IconButton btnPrimero;
     }
 }
