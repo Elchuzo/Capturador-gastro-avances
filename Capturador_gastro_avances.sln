@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.30011.22
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Capturador_gastro_avances", "Capturador_gastro_avances\Capturador_gastro_avances.csproj", "{E816C559-6D59-418D-AFCF-15C7443E5E1C}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup", "Setup\Setup.vdproj", "{D819732B-DDD3-4CF9-9A0C-33E29C4B0A6A}"
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Instalador", "Instalador\Instalador.vdproj", "{0BC49C34-44D0-4946-BAB7-E65D730BA984}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,8 +17,8 @@ Global
 		{E816C559-6D59-418D-AFCF-15C7443E5E1C}.Debug|Any CPU.Build.0 = Release|Any CPU
 		{E816C559-6D59-418D-AFCF-15C7443E5E1C}.Release|Any CPU.ActiveCfg = Debug|Any CPU
 		{E816C559-6D59-418D-AFCF-15C7443E5E1C}.Release|Any CPU.Build.0 = Debug|Any CPU
-		{D819732B-DDD3-4CF9-9A0C-33E29C4B0A6A}.Debug|Any CPU.ActiveCfg = Release
-		{D819732B-DDD3-4CF9-9A0C-33E29C4B0A6A}.Release|Any CPU.ActiveCfg = Release
+		{0BC49C34-44D0-4946-BAB7-E65D730BA984}.Debug|Any CPU.ActiveCfg = Debug
+		{0BC49C34-44D0-4946-BAB7-E65D730BA984}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

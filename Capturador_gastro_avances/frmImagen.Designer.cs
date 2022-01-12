@@ -151,6 +151,7 @@ namespace Capturador_gastro_avances
             this.pnlTop.Name = "pnlTop";
             this.pnlTop.Size = new System.Drawing.Size(292, 29);
             this.pnlTop.TabIndex = 25;
+            this.pnlTop.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnlTop_MouseDown);
             // 
             // btnCerrar
             // 

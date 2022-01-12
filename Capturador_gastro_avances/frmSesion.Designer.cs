@@ -56,7 +56,6 @@
             this.lblEntrada = new System.Windows.Forms.Label();
             this.lblNombre = new System.Windows.Forms.Label();
             this.comboInputs = new System.Windows.Forms.ComboBox();
-            this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
             this.pnlUltima.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picUltima)).BeginInit();
             this.pnlVideo.SuspendLayout();
@@ -85,6 +84,7 @@
             // 
             // btnUltimo
             // 
+            this.btnUltimo.Enabled = false;
             this.btnUltimo.FlatAppearance.BorderSize = 0;
             this.btnUltimo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUltimo.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
@@ -104,6 +104,7 @@
             // 
             // btnSiguiente
             // 
+            this.btnSiguiente.Enabled = false;
             this.btnSiguiente.FlatAppearance.BorderSize = 0;
             this.btnSiguiente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSiguiente.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
@@ -123,6 +124,7 @@
             // 
             // btnAnterior
             // 
+            this.btnAnterior.Enabled = false;
             this.btnAnterior.FlatAppearance.BorderSize = 0;
             this.btnAnterior.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAnterior.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
@@ -142,6 +144,7 @@
             // 
             // btnPrimero
             // 
+            this.btnPrimero.Enabled = false;
             this.btnPrimero.FlatAppearance.BorderSize = 0;
             this.btnPrimero.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPrimero.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
@@ -161,6 +164,7 @@
             // 
             // btnRevisar
             // 
+            this.btnRevisar.Enabled = false;
             this.btnRevisar.FlatAppearance.BorderSize = 0;
             this.btnRevisar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRevisar.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
@@ -180,6 +184,7 @@
             // 
             // btnDel
             // 
+            this.btnDel.Enabled = false;
             this.btnDel.FlatAppearance.BorderSize = 0;
             this.btnDel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDel.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
@@ -200,6 +205,7 @@
             // 
             // btnAdd
             // 
+            this.btnAdd.Enabled = false;
             this.btnAdd.FlatAppearance.BorderSize = 0;
             this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdd.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
@@ -414,8 +420,7 @@
             // 
             this.toolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripLabel1,
-            this.toolStripLabel2});
+            this.toolStripLabel1});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(784, 25);
@@ -498,13 +503,6 @@
             this.comboInputs.Size = new System.Drawing.Size(148, 25);
             this.comboInputs.TabIndex = 16;
             // 
-            // toolStripLabel2
-            // 
-            this.toolStripLabel2.Font = new System.Drawing.Font("Segoe UI", 11.25F);
-            this.toolStripLabel2.Name = "toolStripLabel2";
-            this.toolStripLabel2.Size = new System.Drawing.Size(71, 22);
-            this.toolStripLabel2.Text = "Opciones";
-            // 
             // frmSesion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -519,6 +517,7 @@
             this.Name = "frmSesion";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Med Q";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmSesion_FormClosing);
             this.Load += new System.EventHandler(this.frmSesion_Load);
             this.Shown += new System.EventHandler(this.frmSesion_Shown);
             this.ResizeEnd += new System.EventHandler(this.frmSesion_ResizeEnd);
@@ -563,6 +562,5 @@
         private FontAwesome.Sharp.IconButton btnSiguiente;
         private FontAwesome.Sharp.IconButton btnAnterior;
         private FontAwesome.Sharp.IconButton btnPrimero;
-        private System.Windows.Forms.ToolStripLabel toolStripLabel2;
     }
 }

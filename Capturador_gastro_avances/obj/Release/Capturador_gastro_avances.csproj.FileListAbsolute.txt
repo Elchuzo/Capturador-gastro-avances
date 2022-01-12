@@ -155,18 +155,6 @@ D:\Capturador Med Q\Capturador grabador\Capturador_gastro_avances\Capturador_gas
 D:\Capturador Med Q\Capturador grabador\Capturador_gastro_avances\Capturador_gastro_avances\obj\Release\Capturador_gastro_avances.frmReportes.resources
 D:\Capturador Med Q\Capturador grabador\Capturador_gastro_avances\Capturador_gastro_avances\obj\Release\Capturador_gastro_avances.frmCantidad.resources
 D:\Capturador Med Q\Capturador grabador\Capturador_gastro_avances\Capturador_gastro_avances\obj\Release\Capturador_gastro_avances.csproj.AssemblyReference.cache
-E:\Capturador gastro avances\Capturador-gastro-avances\Capturador_gastro_avances\obj\Release\Capturador_gastro_avances.csproj.AssemblyReference.cache
-E:\Capturador gastro avances\Capturador-gastro-avances\Capturador_gastro_avances\obj\Release\Capturador_gastro_avances.frmAjustes.resources
-E:\Capturador gastro avances\Capturador-gastro-avances\Capturador_gastro_avances\obj\Release\Capturador_gastro_avances.frmCantidad.resources
-E:\Capturador gastro avances\Capturador-gastro-avances\Capturador_gastro_avances\obj\Release\Capturador_gastro_avances.frmDatos.resources
-E:\Capturador gastro avances\Capturador-gastro-avances\Capturador_gastro_avances\obj\Release\Capturador_gastro_avances.frmPrincipal.resources
-E:\Capturador gastro avances\Capturador-gastro-avances\Capturador_gastro_avances\obj\Release\Capturador_gastro_avances.frmSesion.resources
-E:\Capturador gastro avances\Capturador-gastro-avances\Capturador_gastro_avances\obj\Release\Capturador_gastro_avances.frmReportes.resources
-E:\Capturador gastro avances\Capturador-gastro-avances\Capturador_gastro_avances\obj\Release\Capturador_gastro_avances.Properties.Resources.resources
-E:\Capturador gastro avances\Capturador-gastro-avances\Capturador_gastro_avances\obj\Release\Capturador_gastro_avances.csproj.GenerateResource.cache
-E:\Capturador gastro avances\Capturador-gastro-avances\Capturador_gastro_avances\obj\Release\Capturador_gastro_avances.csproj.CoreCompileInputs.cache
-E:\Capturador gastro avances\Capturador-gastro-avances\Capturador_gastro_avances\obj\Release\Capturador_gastro_avances.exe
-E:\Capturador gastro avances\Capturador-gastro-avances\Capturador_gastro_avances\obj\Release\Capturador_gastro_avances.pdb
 E:\Capturador gastro avances\Capturador-gastro-avances\Capturador_gastro_avances\bin\Release\avcodec-57.dll
 E:\Capturador gastro avances\Capturador-gastro-avances\Capturador_gastro_avances\bin\Release\avdevice-57.dll
 E:\Capturador gastro avances\Capturador-gastro-avances\Capturador_gastro_avances\bin\Release\avfilter-6.dll
@@ -211,5 +199,16 @@ E:\Capturador gastro avances\Capturador-gastro-avances\Capturador_gastro_avances
 E:\Capturador gastro avances\Capturador-gastro-avances\Capturador_gastro_avances\bin\Release\Mono.Cecil.Rocks.pdb
 E:\Capturador gastro avances\Capturador-gastro-avances\Capturador_gastro_avances\bin\Release\NuGet.Squirrel.pdb
 E:\Capturador gastro avances\Capturador-gastro-avances\Capturador_gastro_avances\bin\Release\Squirrel.pdb
-E:\Capturador gastro avances\Capturador-gastro-avances\Capturador_gastro_avances\obj\Release\Capturador_gastro_avances.csproj.CopyComplete
+E:\Capturador gastro avances\Capturador-gastro-avances\Capturador_gastro_avances\obj\Release\Capturador_gastro_avances.frmAjustes.resources
+E:\Capturador gastro avances\Capturador-gastro-avances\Capturador_gastro_avances\obj\Release\Capturador_gastro_avances.frmCantidad.resources
+E:\Capturador gastro avances\Capturador-gastro-avances\Capturador_gastro_avances\obj\Release\Capturador_gastro_avances.frmDatos.resources
 E:\Capturador gastro avances\Capturador-gastro-avances\Capturador_gastro_avances\obj\Release\Capturador_gastro_avances.frmImagen.resources
+E:\Capturador gastro avances\Capturador-gastro-avances\Capturador_gastro_avances\obj\Release\Capturador_gastro_avances.frmPrincipal.resources
+E:\Capturador gastro avances\Capturador-gastro-avances\Capturador_gastro_avances\obj\Release\Capturador_gastro_avances.frmSesion.resources
+E:\Capturador gastro avances\Capturador-gastro-avances\Capturador_gastro_avances\obj\Release\Capturador_gastro_avances.frmReportes.resources
+E:\Capturador gastro avances\Capturador-gastro-avances\Capturador_gastro_avances\obj\Release\Capturador_gastro_avances.Properties.Resources.resources
+E:\Capturador gastro avances\Capturador-gastro-avances\Capturador_gastro_avances\obj\Release\Capturador_gastro_avances.csproj.GenerateResource.cache
+E:\Capturador gastro avances\Capturador-gastro-avances\Capturador_gastro_avances\obj\Release\Capturador_gastro_avances.csproj.CoreCompileInputs.cache
+E:\Capturador gastro avances\Capturador-gastro-avances\Capturador_gastro_avances\obj\Release\Capturador_gastro_avances.csproj.CopyComplete
+E:\Capturador gastro avances\Capturador-gastro-avances\Capturador_gastro_avances\obj\Release\Capturador_gastro_avances.exe
+E:\Capturador gastro avances\Capturador-gastro-avances\Capturador_gastro_avances\obj\Release\Capturador_gastro_avances.pdb
